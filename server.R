@@ -1,18 +1,10 @@
-#
-# This is the server logic of a Shiny web application. You can run the 
-# application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-# 
-#    http://shiny.rstudio.com/
-#
 
 library(shiny)
 
-# Define server logic required to draw a histogram
+
 shinyServer(function(input, output) {
     set.seed (2018-9-12)
-    # generate bins based on input$bins from ui.R
+    
     trees$Girthsp <- ifelse(trees$Girth - 10 > 0, trees$Girth - 10, 0)
     model1 <- lm(Height~Girth, data=trees)
     model2 <- lm(Height~Girthsp + Girth, data=trees)
@@ -30,7 +22,7 @@ shinyServer(function(input, output) {
         output$plot <- renderPlot({
         GirthInput <- input$SliderGirth
     
-    # draw the histogram with the specified number of bins
+    
     plot(trees$Girth, trees$Height, xlab = "Girth", ylab = "Height", bty="n", pch=16)
     if (input$showModel1){
         abline(model1, col="red", lwd=2)

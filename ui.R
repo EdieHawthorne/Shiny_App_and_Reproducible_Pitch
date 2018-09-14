@@ -1,21 +1,12 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-# 
-#    http://shiny.rstudio.com/
-#
-
 library(shiny)
 
-# Define UI for application that draws a histogram
+
 shinyUI(fluidPage(
   
-  # Application title
+  
   titlePanel("Predict Height from Girth"),
   
-  # Sidebar with a slider input for number of bins 
+  
   sidebarLayout(
     sidebarPanel(
        sliderInput("SliderGirth", "What's the Number of Girth?", 0, 21, 
@@ -26,7 +17,7 @@ shinyUI(fluidPage(
     ),
 
     
-    # Show a plot of the generated distribution
+    
     mainPanel(
         plotOutput("plot"),
         h3("Predict Height from Model 1:"),
