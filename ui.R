@@ -13,22 +13,26 @@ library(shiny)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Visual Many Models"),
+  titlePanel("Predict Height from Girth"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
-       h3("Slope"),
-       textOutput("SlopeOut"),
-       h3("Intercept"),
-       textOutput("IntOut")
+       sliderInput("SliderGirth", "What's the Number of Girth?", 0, 21, 
+                   value = 8.3),
+       checkboxInput("showModel1", "Show/Hide Model 1", value = TRUE),
+       checkboxInput("showModel2", "Show/Hide Model 2", value = TRUE),
+       submitButton("submit")
     ),
+
     
     # Show a plot of the generated distribution
     mainPanel(
-       plotOutput("plot1", brush=brushOpts(
-           id="brush1"
-       ))
+        plotOutput("plot"),
+        h3("Predict Height from Model 1:"),
+        textOutput("pred1"),
+        h3("Predicted Height from Model 2:"),
+        textOutput("pred2")
     )
   )
 ))
